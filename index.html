@@ -3,63 +3,143 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Everlife Lab Report & Free Gift</title>
+<title>Everlife • Lab Report & Free Gift</title>
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;600;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:#0b0c0e;color:#e6e8eb;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:20px;}
-.card{background:#121417;border-radius:16px;padding:24px;max-width:580px;width:100%;box-shadow:0 6px 24px rgba(0,0,0,0.25);}
-h1{margin:0 0 8px;font-size:1.6rem;}
-.subtitle{margin:0 0 16px;color:#a8adb4;}
-.options{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;}
-.btn{display:flex;justify-content:center;align-items:center;padding:14px;border-radius:12px;border:1px solid #23272c;font-weight:600;cursor:pointer;}
-.btn-primary{background:linear-gradient(180deg,#21c7a8,#0a1f1a);color:#fff;border-color:#21c7a8;}
-.btn-secondary{background:#0f1214;color:#e6e8eb;}
-.panel{display:none;margin-top:16px;}
-.panel.active{display:block;}
-.select{width:100%;padding:10px;border-radius:12px;border:1px solid #23272c;background:#0f1214;color:#e6e8eb;}
-.product-list{display:grid;gap:12px;margin-top:8px;}
-.product{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;border:1px solid #23272c;background:#0f1214;cursor:pointer;}
-.product img{width:40px;height:40px;border-radius:8px;object-fit:cover;transition:transform 0.2s;}
-.product:hover img,.product:focus img{transform:scale(1.6);}
-.product span{font-weight:600;}
+  :root{--brand:#1137B9;--text:#0f172a;--muted:#667085;--card:#fff;--border:#E6E8EC;--shadow:0 8px 30px rgba(2,8,23,0.06);}  
+  *{box-sizing:border-box}html,body{height:100%}
+  body{margin:0;font-family:'Lato', system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .wrap{width:100%;max-width:720px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:26px 20px}
+  header{display:grid;place-items:center;margin-bottom:10px}
+  .logo{width:min(280px,70%);height:auto;display:block}
+  h1{font-family:'Fahkwang',sans-serif;font-size:clamp(1.25rem,2.2vw,1.75rem);margin:10px 0 4px;color:var(--brand);text-align:center}
+  p.subtitle{margin:0 0 8px;color:var(--muted);text-align:center}
+  .options{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0 10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:54px;padding:12px 16px;border-radius:14px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:700;letter-spacing:.2px;cursor:pointer;transition:transform .06s ease,box-shadow .15s ease,border-color .15s ease;box-shadow:var(--shadow)}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--brand);color:#fff;border-color:color-mix(in oklab, var(--brand) 60%, #0000)}
+  .panel{margin-top:12px}
+  .row{display:grid;gap:10px;grid-template-columns:1fr;align-items:end}
+  .field{display:grid;gap:6px}
+  label{font-weight:600}
+  select{width:100%;min-height:50px;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:600}
+  .dropdown{position:relative}
+  .dropdown-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:50px;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:600;cursor:pointer}
+  .menu{position:absolute;inset-inline:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:6px;display:none;z-index:20;max-height:320px;overflow:auto}
+  .menu[aria-hidden="false"]{display:block}
+  .opt{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:10px;padding:8px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:transform .06s ease,border-color .15s ease,background .15s ease;background:#fff}
+  .opt:hover{border-color:color-mix(in oklab, var(--brand) 50%, #0000);background:#f8faff}
+  .thumb-wrap{position:relative;width:56px;height:56px;overflow:visible}
+  .thumb{width:56px;height:56px;border-radius:12px;object-fit:cover;display:block;transform-origin:center;transition:transform .12s ease,box-shadow .12s ease;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  .opt:hover .thumb{transform:scale(1.6);z-index:2}
+  .opt-name{font-weight:700}
+  .opt-meta{color:var(--muted);font-size:.9rem}
+  .open-ind{color:var(--muted)}
+  .go{min-width:140px}
+  footer{text-align:center;color:var(--muted);margin-top:10px;font-size:.92rem}
+  @media (min-width:640px){.options{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr auto}}
 </style>
 </head>
 <body>
-<div class="card">
-<h1>Lab Report & Free Gift</h1>
-<p class="subtitle">Select an option below.</p>
+<main class="wrap" role="main">
+<section class="card" aria-labelledby="title">
+<header>
+<img class="logo" alt="Everlife Bioworks" src="EverlifeLOGO.png">
+</header>
+<h1 id="title">Lab Report &amp; Free Gift</h1>
+<p class="subtitle">Choose an option below.</p>
 <div class="options">
-<button id="giftBtn" class="btn btn-primary">Claim Free Gift</button>
-<button id="labBtn" class="btn btn-secondary">View Lab Report</button>
+<button id="giftBtn" class="btn btn-primary" type="button" aria-expanded="false" aria-controls="giftPanel">Claim Free Gift</button>
+<button id="labBtn" class="btn" type="button" aria-expanded="false" aria-controls="labPanel">View Lab Report</button>
 </div>
-<div id="giftPanel" class="panel">
-<p style="margin-bottom:8px;">Where did you purchase?</p>
-<select id="sourceSelect" class="select">
-<option value="">— Select source —</option>
+<div id="giftPanel" class="panel" hidden>
+<div class="row">
+<div class="field">
+<label for="where">Where did you purchase?</label>
+<select id="where">
+<option value="">— Select —</option>
 <option value="amazon">Amazon</option>
-<option value="website">Everlife.bio</option>
+<option value="website">Everlife.bio website</option>
 </select>
-<button id="continueBtn" class="btn btn-primary" style="margin-top:12px;">Continue</button>
 </div>
-<div id="labPanel" class="panel">
-<p style="margin-bottom:8px;">Select your product</p>
-<div id="productsList" class="product-list">
-<div class="product" tabindex="0" data-product="liver"><img src="https://via.placeholder.com/60?text=Liver" alt="Liver & Spike Detox"><span>Liver & Spike Detox Product</span></div>
-<div class="product" tabindex="0" data-product="parasite"><img src="https://via.placeholder.com/60?text=Colon" alt="Parasite & Colon Cleanse"><span>Parasite & Colon Cleanse</span></div>
-<div class="product" tabindex="0" data-product="nad"><img src="https://via.placeholder.com/60?text=NAD" alt="NAD+ Liquid Shots"><span>NAD+ Liquid Shots</span></div>
+<button id="goGift" class="btn go" type="button">Continue</button>
 </div>
 </div>
+<div id="labPanel" class="panel" hidden>
+<div class="field">
+<label for="productToggle">Select your product</label>
+<div class="dropdown">
+<button id="productToggle" class="dropdown-toggle" aria-haspopup="listbox" aria-expanded="false">
+<span id="currentLabel">— Select a product —</span><span class="open-ind" aria-hidden="true">▾</span>
+</button>
+<div id="productMenu" class="menu" role="listbox" aria-hidden="true"></div>
 </div>
+</div>
+</div>
+<footer>© Everlife Bioworks</footer>
+</section>
+</main>
 <script>
-const GIFT_URLS={amazon:"https://example.com/gift-amazon",website:"https://example.com/gift-website"};
-const PRODUCT_URLS={liver:"https://everlife.bio/labs/liver-spike-detox.pdf",parasite:"https://everlife.bio/labs/parasite-colon-cleanse.pdf",nad:"https://everlife.bio/labs/nad-liquid-shots.pdf"};
-const giftBtn=document.getElementById("giftBtn");
-const labBtn=document.getElementById("labBtn");
-const giftPanel=document.getElementById("giftPanel");
-const labPanel=document.getElementById("labPanel");
-giftBtn.addEventListener("click",()=>{giftPanel.classList.toggle("active");labPanel.classList.remove("active");});
-labBtn.addEventListener("click",()=>{labPanel.classList.toggle("active");giftPanel.classList.remove("active");});
-document.getElementById("continueBtn").addEventListener("click",()=>{const source=document.getElementById("sourceSelect").value;if(source&&GIFT_URLS[source]){window.location.href=GIFT_URLS[source];}});
-document.getElementById("productsList").addEventListener("click",(e)=>{const item=e.target.closest(".product");if(item){const key=item.dataset.product;if(PRODUCT_URLS[key]){window.location.href=PRODUCT_URLS[key];}}});
+const GIFT_URLS = {amazon:"https://<your-amazon-gift-url>", website:"https://<your-website-gift-url>"};
+const PRODUCTS = [
+{label:"Liver & Spike Detox Product", pdf:"https://everlife.bio/labs/liver-spike-detox.pdf", img:"https://everlife.bio/assets/liver-spike-thumb.jpg"},
+{label:"Parasite & Colon Cleanse", pdf:"https://everlife.bio/labs/parasite-colon-cleanse.pdf", img:"https://everlife.bio/assets/parasite-colon-thumb.jpg"},
+{label:"NAD+ Liquid Shots", pdf:"https://everlife.bio/labs/nad-liquid-shots.pdf", img:"https://everlife.bio/assets/nad-thumb.jpg"}
+];
+function toggle(panel, btn){const isOpen=!panel.hidden; panel.hidden=isOpen; if(btn) btn.setAttribute('aria-expanded', String(!isOpen));}
+const giftBtn=document.getElementById('giftBtn');
+const labBtn=document.getElementById('labBtn');
+const giftPanel=document.getElementById('giftPanel');
+const labPanel=document.getElementById('labPanel');
+const whereSel=document.getElementById('where');
+const goGift=document.getElementById('goGift');
+const productToggle=document.getElementById('productToggle');
+const productMenu=document.getElementById('productMenu');
+const currentLabel=document.getElementById('currentLabel');
+giftBtn.addEventListener('click', ()=>toggle(giftPanel, giftBtn));
+labBtn.addEventListener('click', ()=>toggle(labPanel, labBtn));
+goGift.addEventListener('click', ()=>{
+const val=whereSel.value;
+if(!val){alert('Please select where you purchased.'); return;}
+const url = GIFT_URLS[val];
+if(!url || url.includes('<your-')){alert('Gift URL not configured yet.'); return;}
+window.location.assign(url);
+});
+function buildMenu(){
+productMenu.innerHTML='';
+PRODUCTS.forEach(p=>{
+const opt=document.createElement('button'); opt.type='button'; opt.className='opt';
+const wrap=document.createElement('div'); wrap.className='thumb-wrap';
+const img=document.createElement('img'); img.className='thumb'; img.src=p.img; img.alt=''; wrap.appendChild(img);
+const txt=document.createElement('div');
+const name=document.createElement('div'); name.className='opt-name'; name.textContent=p.label;
+const meta=document.createElement('div'); meta.className='opt-meta'; meta.textContent='Tap to open PDF';
+txt.appendChild(name); txt.appendChild(meta);
+const chev=document.createElement('div'); chev.className='open-ind'; chev.textContent='↗';
+opt.appendChild(wrap); opt.appendChild(txt); opt.appendChild(chev);
+opt.addEventListener('click', ()=>{
+currentLabel.textContent=p.label;
+productMenu.setAttribute('aria-hidden','true');
+productToggle.setAttribute('aria-expanded','false');
+if(!p.pdf || p.pdf.includes('<your-')){alert('PDF URL not configured yet.'); return;}
+window.location.replace(p.pdf);
+});
+productMenu.appendChild(opt);
+});
+}
+buildMenu();
+productToggle.addEventListener('click', ()=>{
+const hidden = productMenu.getAttribute('aria-hidden') !== 'false';
+productMenu.setAttribute('aria-hidden', hidden ? 'false':'true');
+productToggle.setAttribute('aria-expanded', hidden ? 'true':'false');
+});
+document.addEventListener('click', (e)=>{
+if(!productMenu.contains(e.target) && e.target !== productToggle){
+productMenu.setAttribute('aria-hidden','true');
+productToggle.setAttribute('aria-expanded','false');
+}
+});
 </script>
 </body>
 </html>
