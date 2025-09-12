@@ -91,9 +91,10 @@ function showPanel(panel, btn, otherPanel, otherBtn) {
   panel.hidden = false;
   otherPanel.hidden = true;
 
-  // Update button styles
+  // Update button styles - ensure both buttons have btn class
+  // and only the active one has btn-primary
+  btn.classList.add('btn');
   btn.classList.add('btn-primary');
-  btn.classList.remove('btn');
   otherBtn.classList.add('btn');
   otherBtn.classList.remove('btn-primary');
 
