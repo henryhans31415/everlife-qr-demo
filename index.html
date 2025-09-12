@@ -6,38 +6,37 @@
 <title>Everlife • Lab Report & Free Gift</title>
 <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;600;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--brand:#1137B9;--text:#0f172a;--muted:#667085;--card:#fff;--border:#E6E8EC;--shadow:0 8px 30px rgba(2,8,23,0.06);}  
+  :root{--brand:#1137B9;--text:#0f172a;--muted:#667085;--card:#fff;--border:#E6E8EC;--shadow:0 8px 30px rgba(2,8,23,0.06);}
   *{box-sizing:border-box}html,body{height:100%}
   body{margin:0;font-family:'Lato', system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);background:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
   .wrap{width:100%;max-width:720px}
   .card{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:26px 20px}
-  header{display:grid;place-items:center;margin-bottom:10px}
+  header{display:grid;place-items:center;margin-bottom:20px}
   .logo{width:min(280px,70%);height:auto;display:block}
-  h1{font-family:'Fahkwang',sans-serif;font-size:clamp(1.25rem,2.2vw,1.75rem);margin:10px 0 4px;color:var(--brand);text-align:center}
-  p.subtitle{margin:0 0 8px;color:var(--muted);text-align:center}
-  .options{display:grid;gap:10px;grid-template-columns:1fr;margin:16px 0 10px}
+  h1{font-family:'Fahkwang',sans-serif;font-size:clamp(1.25rem,2.2vw,1.75rem);margin:20px 0 20px;color:var(--brand);text-align:center}
+  p.subtitle{margin:0 0 20px;color:var(--muted);text-align:center}
+  .options{display:grid;gap:10px;grid-template-columns:1fr;margin:20px 0 20px}
   .btn{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:54px;padding:12px 16px;border-radius:14px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:700;letter-spacing:.2px;cursor:pointer;transition:transform .06s ease,box-shadow .15s ease,border-color .15s ease;box-shadow:var(--shadow)}
   .btn:hover{transform:translateY(-1px)}
-  .btn-primary{background:var(--brand);color:#fff;border-color:color-mix(in oklab, var(--brand) 60%, #0000)}
-  .panel{margin-top:12px}
+  .btn-primary{background:var(--brand);color:#fff;border-color:color-mix(in oklab, var(--brand) 60%, #0000);border-radius:14px;}
+  .panel{margin-top:20px}
   .row{display:grid;gap:10px;grid-template-columns:1fr;align-items:end}
   .field{display:grid;gap:6px}
   label{font-weight:600}
-  select{width:100%;min-height:50px;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:600}
-  .dropdown{position:relative}
-  .dropdown-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:50px;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:600;cursor:pointer}
+  select{width:100%;min-height:50px;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 16px center;color:var(--text);font-weight:600;appearance:none;padding-right:40px; margin-top: 20px;}
+  .dropdown{position:relative; margin-top: 20px;}
+  .dropdown-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:50px;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:#fff;color:var(--text);font-weight:600;cursor:pointer}
   .menu{position:absolute;inset-inline:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:6px;display:none;z-index:20;max-height:320px;overflow:auto}
   .menu[aria-hidden="false"]{display:block}
   .opt{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:10px;padding:8px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:transform .06s ease,border-color .15s ease,background .15s ease;background:#fff}
   .opt:hover{border-color:color-mix(in oklab, var(--brand) 50%, #0000);background:#f8faff}
-  .thumb-wrap{position:relative;width:56px;height:56px;overflow:visible}
-  .thumb{width:56px;height:56px;border-radius:12px;object-fit:cover;display:block;transform-origin:center;transition:transform .12s ease,box-shadow .12s ease;box-shadow:0 2px 8px rgba(0,0,0,.15)}
-  .opt:hover .thumb{transform:scale(1.6);z-index:2}
+  .thumb-wrap{position:relative;width:56px;height:56px;overflow:hidden}
+  .thumb{width:56px;height:56px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 2px 8px rgba(0,0,0,.15)}
   .opt-name{font-weight:700}
   .opt-meta{color:var(--muted);font-size:.9rem}
   .open-ind{color:var(--muted)}
   .go{min-width:140px}
-  footer{text-align:center;color:var(--muted);margin-top:10px;font-size:.92rem}
+  footer{text-align:center;color:var(--muted);margin-top:20px;font-size:.92rem}
   @media (min-width:640px){.options{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr auto}}
 </style>
 </head>
@@ -55,7 +54,7 @@
 </div>
 <div id="giftPanel" class="panel" hidden>
 <div class="row">
-<div class="field">
+<div class="field" id="purchaseField">
 <label for="where">Where did you purchase?</label>
 <select id="where">
 <option value="">— Select —</option>
@@ -67,11 +66,11 @@
 </div>
 </div>
 <div id="labPanel" class="panel" hidden>
-<div class="field">
+<div class="field" id="productField">
 <label for="productToggle">Select your product</label>
 <div class="dropdown">
 <button id="productToggle" class="dropdown-toggle" aria-haspopup="listbox" aria-expanded="false">
-<span id="currentLabel">— Select a product —</span><span class="open-ind" aria-hidden="true">▾</span>
+<span id="currentLabel">— Select a product —</span><span class="open-ind" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
 </button>
 <div id="productMenu" class="menu" role="listbox" aria-hidden="true"></div>
 </div>
@@ -87,7 +86,33 @@ const PRODUCTS = [
 {label:"Parasite & Colon Cleanse", pdf:"https://everlife.bio/labs/parasite-colon-cleanse.pdf", img:"https://everlife.bio/assets/parasite-colon-thumb.jpg"},
 {label:"NAD+ Liquid Shots", pdf:"https://everlife.bio/labs/nad-liquid-shots.pdf", img:"https://everlife.bio/assets/nad-thumb.jpg"}
 ];
-function toggle(panel, btn){const isOpen=!panel.hidden; panel.hidden=isOpen; if(btn) btn.setAttribute('aria-expanded', String(!isOpen));}
+function showPanel(panel, btn, otherPanel, otherBtn) {
+  // Show/hide panels
+  panel.hidden = false;
+  otherPanel.hidden = true;
+
+  // Update button styles
+  btn.classList.add('btn-primary');
+  btn.classList.remove('btn');
+  otherBtn.classList.add('btn');
+  otherBtn.classList.remove('btn-primary');
+
+  // Update aria attributes
+  btn.setAttribute('aria-expanded', 'true');
+  otherBtn.setAttribute('aria-expanded', 'false');
+
+  // Show/hide the appropriate fields based on which button is selected
+  const purchaseField = document.getElementById('purchaseField');
+  const productField = document.getElementById('productField');
+
+  if (btn === giftBtn) {
+    purchaseField.style.display = 'block';
+    productField.style.display = 'none';
+  } else if (btn === labBtn) {
+    purchaseField.style.display = 'none';
+    productField.style.display = 'block';
+  }
+}
 const giftBtn=document.getElementById('giftBtn');
 const labBtn=document.getElementById('labBtn');
 const giftPanel=document.getElementById('giftPanel');
@@ -97,8 +122,14 @@ const goGift=document.getElementById('goGift');
 const productToggle=document.getElementById('productToggle');
 const productMenu=document.getElementById('productMenu');
 const currentLabel=document.getElementById('currentLabel');
-giftBtn.addEventListener('click', ()=>toggle(giftPanel, giftBtn));
-labBtn.addEventListener('click', ()=>toggle(labPanel, labBtn));
+giftBtn.addEventListener('click', () => showPanel(giftPanel, giftBtn, labPanel, labBtn));
+labBtn.addEventListener('click', () => showPanel(labPanel, labBtn, giftPanel, giftBtn));
+
+// Initialize with gift panel visible and purchase field shown
+showPanel(giftPanel, giftBtn, labPanel, labBtn);
+
+// Make sure the product field is initially hidden
+document.getElementById('productField').style.display = 'none';
 goGift.addEventListener('click', ()=>{
 const val=whereSel.value;
 if(!val){alert('Please select where you purchased.'); return;}
