@@ -32,7 +32,7 @@
   .opt:hover{border-color:color-mix(in oklab, var(--brand) 50%, #0000);background:#f8faff}
   .thumb-wrap{position:relative;width:56px;height:56px;overflow:hidden}
 
-  
+
   .thumb{width:56px;height:56px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 2px 8px rgba(0,0,0,.15)}
   .opt-name{font-weight:700}
   .opt-meta{color:var(--muted);font-size:.9rem}
@@ -41,7 +41,7 @@
   footer{text-align:center;color:var(--muted);margin-top:20px;font-size:.92rem}
   @media (min-width:640px){.options{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr auto}}
 </style>
-  
+
 </head>
 <body>
 <maction
@@ -85,7 +85,7 @@
 <script>
 const GIFT_URLS = {amazon:"https://survey.everlife.bio", website:"https://<your-website-gift-url>"};
 const PRODUCTS = [
-{label:"Liver & Spike Detox Product", pdf:"https://everlife.bio/labs/liver-spike-detox.pdf", img:"https://everlife.bio/assets/liver-spike-thumb.jpg"},
+{label:"Liver & Spike Detox Product", pdf:"https://everlife.bio/pages/liver-spike-detox", img:"https://everlife.bio/cdn/shop/files/TransparentbgSP.png"},
 {label:"Parasite & Colon Cleanse", pdf:"https://everlife.bio/labs/parasite-colon-cleanse.pdf", img:"https://everlife.bio/assets/parasite-colon-thumb.jpg"},
 {label:"NAD+ Liquid Shots", pdf:"https://everlife.bio/labs/nad-liquid-shots.pdf", img:"https://everlife.bio/assets/nad-thumb.jpg"}
 ];
@@ -111,7 +111,7 @@ function showPanel(panel, btn, otherPanel, otherBtn) {
 
   if (btn === giftBtn) {
     purchaseField.style.display = 'block';
-   
+
     productField.style.display = 'none';
   } else if (btn === labBtn) {
     purchaseField.style.display = 'none';
